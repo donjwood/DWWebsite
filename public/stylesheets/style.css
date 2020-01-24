@@ -1,8 +1,45 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-bottom: 80px !important;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  height: 60px;
+  line-height: 60px;
 }
 
 a {
-  color: #00B7FF;
+color: #00B7FF;
+}
+
+/* Vue Styles */
+[v-cloak] > * { display:none }
+[v-cloak]::before { content: "loading…" }
+
+/* Error styles */
+.error-asterisk {
+  color: red;
+}
+
+.field-error-message {
+  color: red;
+  font-size: 0.75em;
+}
+
+.field-valid-message {
+  color: green;
+  font-size: 0.75em;
+}
+
+.invalid-field {
+  border-color: red;
+  box-shadow: 0px 0px 10px red;
 }

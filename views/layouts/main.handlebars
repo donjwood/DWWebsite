@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+        <div id="app" v-cloak>
+            <header>
+                <b-navbar toggleable="sm" type="dark" variant="dark" class="border-bottom box-shadow mb-3">
+                    <div class="container">
+                        <b-navbar-brand href="/">DJW</b-navbar-brand>
+                        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+                        <b-collapse id="nav-collapse" is-nav>
+                            <b-navbar-nav>
+                                <b-nav-item href="/">Home</b-nav-item>
+                                {{#if user}}
+                                    {{#if user.isAdmin}}
+                                        <b-nav-item href="/users/manageUsers">Manage Users</b-nav-item>
+                                    {{/if}}
+                                {{/if}}
+                            </b-navbar-nav>   
+                            <b-navbar-nav class="ml-auto">
+                                {{#if user }}
+                                    <b-nav-item-dropdown text="{{user.firstName}} {{user.lastName}}" right>
+                                        <b-dropdown-item href="/users/editUser"><i class="fas fa-user-edit"></i> Edit User</b-dropdown-item>
+                                        <b-dropdown-item href="/users/changePassword"><i class="fas fa-key"></i> Change Password</b-dropdown-item>
+                                        <b-dropdown-item href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</b-dropdown-item>
+                                    </b-nav-item-dropdown>
+                                {{else}}
+                                    <a href="/login" class="btn btn-outline-light"><i class="fas fa-sign-in-alt"></i> Login</a>
+                                {{/if}}
+                            </b-navbar-nav>
+                        </b-collapse>  
+                    </div>              
+                </b-navbar>
+            </header>
+            <main>
+                {{{body}}}
+            </main>
+            <footer class="border-top footer text-muted bg-dark">
+                <div class="container">
+                    &copy; {{year}}
+                </div>
+            </footer>
+        </div>
+        <script src="/build/bundle.js"></script>
+    </body>
+</html>
