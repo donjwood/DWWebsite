@@ -31,7 +31,7 @@ const all = {
  */
 const development = {
     app: {
-        port: 3000
+        avar: 'aval'
     }
 };
 
@@ -40,7 +40,7 @@ const development = {
  */
 const production = {
     app: {
-        port: 3000
+        avar: 'aval'
     }
 };
 
