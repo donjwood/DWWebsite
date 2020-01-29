@@ -10,11 +10,6 @@ const all = {
     bcrypt: {
         saltRounds: 10
     },
-    session: {
-        secret: process.env.EXP_SESSION_SECRET || 'SessionSecret',
-        sqliteFileName: 'session.sqlite3',
-        sqliteDirectory: 'db'
-    },
     apiToken: {
         secret: process.env.API_TOKEN_SECRET || 'TokenSecret',
         options: {
@@ -31,6 +26,14 @@ const development = {
         dialect: 'sqlite',
         sqliteFile: './db/DWWebsite.sqlite'
     },
+    session: {
+        secret: process.env.EXP_SESSION_SECRET || 'SessionSecret',
+        db: {
+            dialect: 'sqlite',
+            sqliteFileName: 'session.sqlite3',
+            sqliteDirectory: 'db'
+        }
+    },
     app: {
         avar: 'aval'
     }
@@ -43,6 +46,12 @@ const production = {
     db: {
         dialect: 'postgres',
         postgresUrl: process.env.DATABASE_URL
+    },
+    session: {
+        secret: process.env.EXP_SESSION_SECRET || 'SessionSecret',
+        db: {
+            dialect: 'postgres'
+        }
     },
     app: {
         avar: 'aval'
