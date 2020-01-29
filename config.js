@@ -7,9 +7,6 @@ const env = process.env.NODE_ENV || "development";
  * Config for all environments.
  */
 const all = {
-    db: {
-        sqliteFile: './db/rpidb.sqlite'
-    },
     bcrypt: {
         saltRounds: 10
     },
@@ -30,6 +27,10 @@ const all = {
  * Special config for develpment.
  */
 const development = {
+    db: {
+        dialect: 'sqlite',
+        sqliteFile: './db/DWWebsite.sqlite'
+    },
     app: {
         avar: 'aval'
     }
@@ -39,6 +40,10 @@ const development = {
  * Special config for production
  */
 const production = {
+    db: {
+        dialect: 'postgres',
+        postgresUrl: process.env.DATABASE_URL
+    },
     app: {
         avar: 'aval'
     }
