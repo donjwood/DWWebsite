@@ -10,7 +10,8 @@ const logger = require('morgan');
 const config = require('./config');
 const appMiddleware = require('./middleware/appMiddleware');
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const userRouter = require('./routes/userRouter');
+const userApiRouter = require('./routes/userApi');
 
 const app = express();
 
@@ -58,8 +59,10 @@ if (config.session.db.dialect == 'postgres') {
 // Set global response properties (needs to be before routers)
 app.use(appMiddleware.setGlobalResProperties);
 
+// Set up routers
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/users', userRouter);
+app.use('/userapi', userApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

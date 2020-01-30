@@ -1,3 +1,5 @@
+const { VueLoaderPlugin } = require('vue-loader');
+
 module.exports = {
   entry: './public/src/main.js',
   output: {
@@ -39,6 +41,11 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    // vue-loader no longer works without this plugin.
+    // https://github.com/symfony/webpack-encore/issues/311
+    new VueLoaderPlugin()
+  ],
   optimization: {
     runtimeChunk: 'single',
     splitChunks: {
