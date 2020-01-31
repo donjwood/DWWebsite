@@ -17,6 +17,9 @@
                             <b-navbar-nav>
                                 <b-nav-item href="/">Home</b-nav-item>
                                 {{#if user}}
+                                    <b-nav-item-dropdown text="Raspberry Pi" right>
+                                        <b-dropdown-item href="/raspberrypi/rPiSenseHat"><i class="fas fa-thermometer-full"></i> Sense Hat</b-dropdown-item>
+                                    </b-nav-item-dropdown>
                                     {{#if user.isAdmin}}
                                         <b-nav-item href="/users/manageUsers">Manage Users</b-nav-item>
                                     {{/if}}

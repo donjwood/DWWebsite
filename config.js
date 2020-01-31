@@ -15,6 +15,11 @@ const all = {
         options: {
             expiresIn: '24h'
         }
+    },
+    raspberryPi: {
+        url: process.env.RASPBERRY_PI_URL || '',
+        username: process.env.RASPBERRY_PI_USERNAME || '',
+        password: process.env.RASPBERRY_PI_PASSWORD || ''
     }
 }
 
@@ -33,9 +38,6 @@ const development = {
             sqliteFileName: 'session.sqlite3',
             sqliteDirectory: 'db'
         }
-    },
-    app: {
-        avar: 'aval'
     }
 };
 
@@ -52,9 +54,6 @@ const production = {
         db: {
             dialect: 'postgres'
         }
-    },
-    app: {
-        avar: 'aval'
     }
 };
 

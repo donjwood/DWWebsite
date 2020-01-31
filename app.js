@@ -12,6 +12,8 @@ const appMiddleware = require('./middleware/appMiddleware');
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/userRouter');
 const userApiRouter = require('./routes/userApi');
+const raspberryPiRouter = require('./routes/raspberryPiRouter');
+const raspberryPiApiRouter = require('./routes/raspberryPiApi');
 
 const app = express();
 
@@ -63,6 +65,8 @@ app.use(appMiddleware.setGlobalResProperties);
 app.use('/', indexRouter);
 app.use('/users', userRouter);
 app.use('/userapi', userApiRouter);
+app.use('/raspberrypi', raspberryPiRouter);
+app.use('/raspberrypiapi', raspberryPiApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

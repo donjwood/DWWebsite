@@ -1,6 +1,6 @@
 <template>
     <div class="card mx-auto">
-        <h5 class="card-header">Sense Hat Data <i v-if="isRefreshing" class="fas fa-circle-notch fa-spin"></i></h5>
+        <h5 class="card-header"><i class="fab fa-raspberry-pi"></i> Raspberry Pi Sense Hat Data <i v-if="isRefreshing" class="fas fa-circle-notch fa-spin"></i></h5>
         <div class="card-body">
             <div class="card-text">
                 <div class="row" v-if="isLoading">
@@ -65,7 +65,7 @@
             try {
 
                 let res = await axios
-                .get('/sensehatapi/getsensehatdata');
+                .get('/raspberrypiapi/getsensehatdata');
 
                 this.senseHatData = res.data;
                 this.lastUpdatedDate = new Date();
@@ -89,7 +89,7 @@
                 try {
 
                     let res = await axios
-                    .get('/sensehatapi/getsensehatdata');
+                    .get('/raspberrypiapi/getsensehatdata');
 
                     this.senseHatData = res.data;
                     this.lastUpdatedDate = new Date();

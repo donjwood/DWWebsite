@@ -3,9 +3,9 @@ const router = express.Router();
 const apiTokenAuth = require('../middleware/apiTokenAuthorization');
 
 //Require controller
-senseHatApiController = require('../controllers/senseHatApiController');
+raspberryPiApiController = require('../controllers/raspberryPiApiController');
 
 //GET home page.
-router.get('/getsensehatdata', [apiTokenAuth.isValidToken], senseHatApiController.getSenseHatData);
+router.get('/getsensehatdata', [apiTokenAuth.isValidToken], raspberryPiApiController.getSenseHatData);
 
 module.exports = router;
